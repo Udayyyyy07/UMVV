@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TicTac Pro+</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="bg">
+        <span style="left:10%">X</span>
+        <span style="left:30%;animation-delay:2s">O</span>
+        <span style="left:50%;animation-delay:4s">X</span>
+        <span style="left:70%;animation-delay:6s">O</span>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginBox" class="box">
+        <h2>🎮 Login</h2>
+        <div class="inputBox">
+            <input id="luser" placeholder=" " oninput="typeSound()">
+            <label>Username</label>
+        </div>
+        <div class="inputBox">
+            <input id="lpass" type="password" placeholder=" " oninput="typeSound()">
+            <label>Password</label>
+        </div>
+        <button onclick="login()">Login</button>
+        <p><a onclick="showRegister()">Create Account</a></p>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="registerBox" class="box" style="display:none">
+        <h2>❌ ⭕ Register</h2>
+        <div class="inputBox">
+            <input id="ruser" placeholder=" ">
+            <label>Username</label>
+        </div>
+        <div class="inputBox">
+            <input id="rpass" type="password" placeholder=" ">
+            <label>Password</label>
+        </div>
+        <button onclick="register()">Register</button>
+        <p><a onclick="showLogin()">Back to Login</a></p>
+    </div>
+
+    <!-- GAME -->
+    <div id="game">
+        <h1>TicTac Pro+</h1>
+        <p id="welcome"></p>
+        <p id="turn">Player X Turn</p>
+
+        <div class="board" id="board">
+            <div id="line"></div>
+        </div>
+
+        X Wins: <span id="xScore">0</span> | O Wins: <span id="oScore">0</span><br><br>
+
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- POPUP -->
+    <div id="popup">
+        <div class="popupBox">
+            <h2 id="winnerText"></h2>
+            <button onclick="nextGame()">Next Game</button>
+        </div>
+    </div>
+
+    <!-- SOUNDS -->
+    <audio id="type" src="sounds/type.mp3"></audio>
+    <audio id="click" src="sounds/click.mp3"></audio>
+    <audio id="success" src="sounds/success.mp3"></audio>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
