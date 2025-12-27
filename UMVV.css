@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+/* FLOATING X O */
+
+.bg span {
+    position: absolute;
+    font-size: 70px;
+    opacity: 0.15;
+    animation: float 12s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(110vh) rotate(0deg)
+    }
+    to {
+        transform: translateY(-130vh) rotate(360deg)
+    }
+}
+
+
+/* COMMON BOX */
+
+.box {
+    width: 330px;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 18px;
+    backdrop-filter: blur(10px);
+    animation: pop .6s ease;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(.6);
+        opacity: 0
+    }
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+
+/* INPUT */
+
+.inputBox {
+    position: relative;
+    margin: 18px 0
+}
+
+.inputBox input {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    outline: none;
+}
+
+.inputBox label {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    transition: .3s;
+    opacity: .7;
+}
+
+.inputBox input:focus+label,
+.inputBox input:not(:placeholder-shown)+label {
+    top: -10px;
+    font-size: 12px;
+    color: #00ffcc;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #00c6ff;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #00ffcc;
+    transform: scale(1.05)
+}
+
+a {
+    color: #00ffcc;
+    cursor: pointer;
+    text-decoration: none
+}
+
+
+/* GAME */
+
+#game {
+    display: none
+}
+
+.board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.cell {
+    height: 100px;
+    background: rgba(255, 255, 255, 0.15);
+    font-size: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+.cell:hover {
+    background: rgba(255, 255, 255, .3)
+}
+
+.win {
+    background: #00ffcc;
+    color: black
+}
+
+
+/* POPUP */
+
+#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.popupBox {
+    background: white;
+    color: black;
+    padding: 30px;
+    border-radius: 16px;
+}
